@@ -1,44 +1,99 @@
 import React from "react";
 import ParticlesBackground from "../components/ParticlesBackground";
-import { Typography, Button } from "@mui/material";
+import { Typography, Button, Box } from "@mui/material";
+import { motion } from "framer-motion";
 
 export default function Home() {
+  // Animation variants
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
   return (
-    <section
+    <Box
       id="home"
-      className="relative flex flex-col items-center justify-center h-screen text-center"
+      sx={{
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+        textAlign: "center",
+        overflow: "hidden",
+      }}
     >
-      {/* Animated background */}
+      {/* Particles background */}
       <ParticlesBackground />
 
       {/* Foreground content */}
-      <div className="z-10 px-4">
-        <Typography
-          variant="h3"
-          fontWeight="bold"
-          gutterBottom
-          className="text-white"
+      <Box
+        sx={{
+          position: "relative",
+          zIndex: 10,
+          px: 3,
+        }}
+      >
+        {/* Animated heading */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={fadeUp}
         >
-          Hi, I'm <span className="text-blue-400">Edwin</span>
-        </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: "bold",
+              color: "white",
+              mb: 2,
+            }}
+          >
+            Hi, I'm <Box component="span" sx={{ color: "#3b82f6" }}>Edwin</Box>
+          </Typography>
+        </motion.div>
 
-        <Typography
-          variant="h6"
-          gutterBottom
-          className="text-gray-400"
+        {/* Animated subheading */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={fadeUp}
+          transition={{ delay: 0.2 }}
         >
-          Frontend Developer • React • TypeScript
-        </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              color: "rgba(156,163,175,1)", // Tailwind's gray-400
+              mb: 3,
+            }}
+          >
+            Frontend Developer • React • TypeScript
+          </Typography>
+        </motion.div>
 
-        <Button
-          variant="contained"
-          sx={{ mt: 3 }}
-          href="#projects"
-          className="bg-blue-600 hover:bg-blue-700"
+        {/* Animated button */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.2 }}
+          variants={fadeUp}
+          transition={{ delay: 0.4 }}
         >
-          View My Work
-        </Button>
-      </div>
-    </section>
+          <Button
+            variant="contained"
+            href="#projects"
+            sx={{
+              mt: 3,
+              background: "#3b82f6",
+              "&:hover": { background: "#2563eb" },
+            }}
+          >
+            View My Work
+          </Button>
+        </motion.div>
+      </Box>
+    </Box>
   );
 }
