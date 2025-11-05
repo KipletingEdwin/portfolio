@@ -83,7 +83,7 @@ export default function Skills() {
           textAlign: "center",
         }}
       >
-        Skills & Technologies
+        Skills 
       </Typography>
 
       {/* Animated Grid */}

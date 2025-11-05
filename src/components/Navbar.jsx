@@ -32,7 +32,16 @@ export default function Navbar() {
       <Toolbar>
         <Typography
           variant="h6"
-          sx={{ flexGrow: 1, fontWeight: "bold", cursor: "pointer" }}
+          sx={{ flexGrow: 1,
+             fontWeight: "bold",
+              cursor: "pointer",
+              background: "linear-gradient(90deg, #3b82f6, #9333ea)",
+              backgroundClip: "text",
+              WebkitBackgroundClip: "text",
+              color: "transparent",
+              WebkitTextFillColor: "transparent",
+            
+            }}
         >
           Edwin
         </Typography>

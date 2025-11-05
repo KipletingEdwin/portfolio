@@ -4,7 +4,7 @@ import { Typography, Button, Box } from "@mui/material";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  // Animation variants
+  // Animation variant
   const fadeUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
@@ -24,22 +24,16 @@ export default function Home() {
         overflow: "hidden",
       }}
     >
-      {/* Particles background */}
+      {/* Particles Background */}
       <ParticlesBackground />
 
       {/* Foreground content */}
-      <Box
-        sx={{
-          position: "relative",
-          zIndex: 10,
-          px: 3,
-        }}
-      >
-        {/* Animated heading */}
+      <Box sx={{ position: "relative", zIndex: 10, px: 3 }}>
+        {/* Heading */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.3 }} // triggers every scroll
           variants={fadeUp}
         >
           <Typography
@@ -54,18 +48,18 @@ export default function Home() {
           </Typography>
         </motion.div>
 
-        {/* Animated subheading */}
+        {/* Subheading */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.3 }}
           variants={fadeUp}
           transition={{ delay: 0.2 }}
         >
           <Typography
             variant="h6"
             sx={{
-              color: "rgba(156,163,175,1)", // Tailwind's gray-400
+              color: "rgba(156,163,175,1)",
               mb: 3,
             }}
           >
@@ -73,11 +67,11 @@ export default function Home() {
           </Typography>
         </motion.div>
 
-        {/* Animated button */}
+        {/* Button */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.3 }}
           variants={fadeUp}
           transition={{ delay: 0.4 }}
         >
